@@ -1,0 +1,31 @@
+{ "name": "p-readar",
+  "version": "0.0.1",
+  "description": "Read a text file entirely and return a promise for an array of text lines.",
+  "keywords": [],
+
+  "author": "M.K. (https://github.com/mk-pmb)",
+  "homepage": "https://github.com/mk-pmb/p-readar-js/#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mk-pmb/p-readar-js.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mk-pmb/p-readar-js/issues"
+  },
+  "contributors": [],
+
+  "private": false, "license": "ISC",
+
+  "type": "module",
+  "exports": "p-readar.mjs",
+  "scripts": { "test": "nodemjs test/all.mjs" },
+  "directories": { "test": "test" },
+  "eslintConfig": { "extends": "nodejs-pmb" },
+
+  "dependencies": {},
+  "devDependencies": {
+  },
+
+
+  "npm vs. BOM = Unexpected token": "-*- coding: UTF-8 -*-"
+}

@@ -26,6 +26,9 @@ This module exports one function:
 
 `opts` is an optional options object that supports these optional keys:
 
+* `fs`: An object whose `.readFile` promising method should be used to read
+  the raw file data.
+  Defaults to the `nofs` module.
 * `path`: Path (as string primitive)
   or file descriptor number (as number primitive)
   of the file to be read.
@@ -33,17 +36,22 @@ This module exports one function:
     the file descriptor number of stdin.
   * All other data types, including String objects and Number objects,
     will be refused.
-* `eol`: The line-splitting RegExp. Default: `/\r?\n/`
-  * Line-splitting will be skipped if the
 * `enc`: Encoding. Default: `'UTF-8'`
-* `map`: If truthy, a function to `.map()` the result lines with.
-  Default: `undefined`
-* `filter`: If truthy, a function to `.filter()` the result lines with.
-  Default: `undefined`
 * `ifUnreadable`: What to do in case the file cannot be read.
   * `undefined`: Reject the promise.
   * any other value: Pretend this value would have been the result of reading
     the file contents.
+    * In case it is not an array, it will be stringified and line-split.
+* `keepBOM`: Whether to preserve UTF-8 Byte Order Mark.
+  Default: `false`
+* `keepELL`: Whether to preserve a false-y (e.g. empty) last line.
+  Default: `false`
+* `eolRgx`: The line-splitting RegExp. Default: `/\r?\n/`
+  * Line-splitting will be skipped if the
+* `map`: If truthy, a function to `.map()` the result lines with.
+  Default: `undefined`
+* `filter`: If truthy, a function to `.filter()` the result lines with.
+  Default: `undefined`
 * `ifEmpty`: What to do in case the results array is empty after `filter`.
   * `undefined`: Return the exact results array anyway.
     Even though empty, the `filter` may have modified it in other ways.
@@ -59,7 +67,7 @@ This module exports one function:
 Usage
 -----
 
-see [test/usage.js](test/usage.js). :TODO:
+see [test/usage.mjs](test/usage.mjs)
 
 
 
